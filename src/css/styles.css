@@ -37,11 +37,13 @@
 
  .gallery {
    display: grid;
-   grid-template-columns: repeat(3, 1fr);
+   grid-template-columns: repeat(5, 1fr);
    grid-gap: 20px;
    max-width: 70%;
    list-style: none;
    margin: 0 auto;
+   padding-bottom: 15px;
+   justify-content: center;
  }
 
  img {
@@ -68,6 +70,7 @@
  .info-item{
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
  }
  .title{
 display: flex;
@@ -76,14 +79,37 @@ justify-content: space-around
  .info{
 display: flex;
   justify-content: center;
-  gap: 28px;
+  gap: 10px;
  }
  .photo-container{
 border: 1px solid #808080;
-max-width: 360px;
- }
+max-width: 340px;
+}
 .photo{
-      height: 200px;
-        width: 360px;
+        height: 200px;
+          width: 340px;
 }
 
+
+.load-more {
+  margin-top: 20px;
+  margin-left: 10px;
+  background-color: dodgerblue;
+  border-radius: 5px;
+  border: none;
+  height: 40px;
+  width: 100px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.load-more:hover {
+  background-color: aqua;
+}
+
+.is-hidden {
+  display: none;
+}
