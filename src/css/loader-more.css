@@ -8,7 +8,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     border: 3px solid;
-    border-color: #FFF #FFF transparent transparent;
+    border-color: #190ebb #3510bb transparent transparent;
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
 }
@@ -30,7 +30,7 @@
     bottom: 0;
     margin: auto;
     border: 3px solid;
-    border-color: transparent transparent #FF3D00 #FF3D00;
+    border-color: transparent transparent #09cd54 #0ccb49;
     width: 40px;
     height: 40px;
     border-radius: 50%;

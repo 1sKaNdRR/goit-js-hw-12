@@ -56,59 +56,10 @@ async function onSearch(event) {
   }
 }
 
-// async function onLoadMore() {
-//   page += 1;
-//   loadMoreLoaderEl.classList.remove('is-hidden');
-//   loadMoreBtn.disabled = true;
-
-//   try {
-//     const imagesData = await fetchPhotos(searchQuery, page);
-//     if (imagesData.hits.length === 0) {
-//       iziToast.error({
-//         message: "We're sorry, but you've reached the end of search results.",
-//       });
-//       loadMoreBtn.classList.add('is-hidden');
-//     } else {
-//       const previousScrollY = window.scrollY;
-//       imgContainer.insertAdjacentHTML('beforeend', createMarkup(imagesData.hits));
-//       const lightbox = new SimpleLightbox('.gallery a', {
-//         captionsData: 'alt',
-//         captionsDelay: 250,
-//       });
-//       lightbox.refresh();
-      
-//       // Smooth scroll to newly added images
-//       const newImages = document.querySelectorAll('.gallery li:nth-last-child(-n+15)');
-//       if (newImages.length > 0) {
-//         const firstNewImage = newImages[0];
-//         firstNewImage.scrollIntoView({ behavior: 'smooth' });
-//       }
-
-//       if (imagesData.hits.length < 15) {
-//         loadMoreBtn.classList.add('is-hidden');
-//         iziToast.info({
-//           message: "We're sorry, but you've reached the end of search results.",
-//         });
-//       } else {
-//         loadMoreBtn.classList.remove('is-hidden');
-//       }
-//     }
-//   } catch (error) {
-//     console.log(error);
-//     iziToast.error({
-//       message: 'Failed to fetch images. Please try again.',
-//     });
-//   } finally {
-//     loadMoreLoaderEl.classList.add('is-hidden');
-//     loadMoreBtn.disabled = false;
-//   }
-// }
-// Вже існуючий код
-
 async function onLoadMore() {
   page += 1;
-  loadMoreBtn.classList.add('is-hidden'); // Приховуємо кнопку Load more
-  document.getElementById('load-more-button-loader').classList.remove('is-hidden'); // Показуємо новий лоадер
+  loadMoreBtn.classList.add('is-hidden');
+  document.getElementById('load-more-button-loader').classList.remove('is-hidden');
 
   try {
     const imagesData = await fetchPhotos(searchQuery, page);
@@ -125,7 +76,6 @@ async function onLoadMore() {
       });
       lightbox.refresh();
       
-      // Smooth scroll to newly added images
       const newImages = document.querySelectorAll('.gallery li:nth-last-child(-n+15)');
       if (newImages.length > 0) {
         const firstNewImage = newImages[0];
@@ -147,13 +97,10 @@ async function onLoadMore() {
       message: 'Failed to fetch images. Please try again.',
     });
   } finally {
-    document.getElementById('load-more-button-loader').classList.add('is-hidden'); // Приховуємо новий лоадер
+    document.getElementById('load-more-button-loader').classList.add('is-hidden');
     loadMoreBtn.disabled = false;
   }
 }
-
-// Вже існуючий код
-
 
 searchForm.addEventListener('submit', onSearch);
 loadMoreBtn.addEventListener('click', onLoadMore);
